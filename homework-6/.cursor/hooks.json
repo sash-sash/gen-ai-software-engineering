@@ -1,0 +1,12 @@
+{
+  "version": 1,
+  "hooks": {
+    "beforeShellExecution": [
+      {
+        "command": "py homework-6/.cursor/hooks/check-coverage-before-push.py",
+        "matcher": "^git\\s+push\\b",
+        "failClosed": true
+      }
+    ]
+  }
+}
