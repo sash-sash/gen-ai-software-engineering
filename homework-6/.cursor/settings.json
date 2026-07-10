@@ -1,9 +1,0 @@
-{
-  "homework6CoverageGate": {
-    "description": "Coverage gate configuration for hook-based push blocking",
-    "hookConfigPath": "homework-6/.cursor/hooks.json",
-    "hookScriptPath": "homework-6/.cursor/hooks/check-coverage-before-push.py",
-    "threshold": 80,
-    "pytestCommand": "cd homework-6 && py -m pytest --cov=. --cov-fail-under=80 --cov-report=term-missing"
-  }
-}
