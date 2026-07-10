@@ -1,0 +1,148 @@
+### Banking Transactions API — Sample Requests
+### Compatible with VS Code REST Client extension
+
+@base = http://localhost:8000
+
+# ─────────────────────────────────────────────
+# Root
+# ─────────────────────────────────────────────
+
+### GET root
+GET {{base}}/
+
+# ─────────────────────────────────────────────
+# Create transactions
+# ─────────────────────────────────────────────
+
+### POST — deposit to ACC-12345
+POST {{base}}/transactions
+Content-Type: application/json
+
+{
+  "fromAccount": "ACC-00000",
+  "toAccount": "ACC-12345",
+  "amount": 1000.00,
+  "currency": "USD",
+  "type": "deposit"
+}
+
+###
+
+### POST — transfer ACC-12345 → ACC-67890
+POST {{base}}/transactions
+Content-Type: application/json
+
+{
+  "fromAccount": "ACC-12345",
+  "toAccount": "ACC-67890",
+  "amount": 250.50,
+  "currency": "USD",
+  "type": "transfer"
+}
+
+###
+
+### POST — withdrawal from ACC-67890
+POST {{base}}/transactions
+Content-Type: application/json
+
+{
+  "fromAccount": "ACC-67890",
+  "toAccount": "ACC-VAULT",
+  "amount": 75.00,
+  "currency": "USD",
+  "type": "withdrawal"
+}
+
+###
+
+### POST — validation error (negative amount)
+POST {{base}}/transactions
+Content-Type: application/json
+
+{
+  "fromAccount": "ACC-12345",
+  "toAccount": "ACC-67890",
+  "amount": -50,
+  "currency": "USD",
+  "type": "transfer"
+}
+
+###
+
+### POST — validation error (bad account format)
+POST {{base}}/transactions
+Content-Type: application/json
+
+{
+  "fromAccount": "12345",
+  "toAccount": "ACC-67890",
+  "amount": 100,
+  "currency": "USD",
+  "type": "transfer"
+}
+
+###
+
+### POST — validation error (invalid currency)
+POST {{base}}/transactions
+Content-Type: application/json
+
+{
+  "fromAccount": "ACC-12345",
+  "toAccount": "ACC-67890",
+  "amount": 100,
+  "currency": "XYZ",
+  "type": "transfer"
+}
+
+# ─────────────────────────────────────────────
+# List & filter transactions
+# ─────────────────────────────────────────────
+
+### GET all transactions
+GET {{base}}/transactions
+
+###
+
+### GET transactions for account ACC-12345
+GET {{base}}/transactions?accountId=ACC-12345
+
+###
+
+### GET only transfer transactions
+GET {{base}}/transactions?type=transfer
+
+###
+
+### GET transactions with date range
+GET {{base}}/transactions?from=2024-01-01T00:00:00Z&to=2030-12-31T23:59:59Z
+
+###
+
+### GET transactions — combined filter
+GET {{base}}/transactions?accountId=ACC-12345&type=transfer
+
+# ─────────────────────────────────────────────
+# Get specific transaction
+# ─────────────────────────────────────────────
+
+### GET transaction by ID (replace with real UUID from POST response)
+GET {{base}}/transactions/00000000-0000-0000-0000-000000000000
+
+# ─────────────────────────────────────────────
+# Account endpoints
+# ─────────────────────────────────────────────
+
+### GET balance for ACC-12345
+GET {{base}}/accounts/ACC-12345/balance
+
+###
+
+### GET summary for ACC-12345
+GET {{base}}/accounts/ACC-12345/summary
+
+###
+
+### GET balance for ACC-67890
+GET {{base}}/accounts/ACC-67890/balance

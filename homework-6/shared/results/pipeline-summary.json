@@ -1,0 +1,13 @@
+{
+  "run_timestamp": "2026-07-10T15:29:00.140145Z",
+  "processed": 8,
+  "validated": 6,
+  "rejected": 2,
+  "scored": 6,
+  "held": 1,
+  "settled": 5,
+  "settled_totals_by_currency": {
+    "EUR": "497.50",
+    "USD": "39626.49"
+  }
+}

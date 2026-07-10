@@ -1,0 +1,38 @@
+{
+  "message_id": "3f0b54d0-0720-56b5-8484-3ccd4043e2fa",
+  "timestamp": "2026-07-10T15:29:00.091924Z",
+  "source_agent": "fraud_detector",
+  "target_agent": "settlement_processor",
+  "message_type": "transaction",
+  "data": {
+    "transaction_id": "TXN003",
+    "timestamp": "2026-03-16T09:30:00Z",
+    "source_account": "ACC-1003",
+    "destination_account": "ACC-9999",
+    "amount": "9999.99",
+    "currency": "USD",
+    "transaction_type": "transfer",
+    "description": "Consulting payment",
+    "metadata": {
+      "channel": "online",
+      "country": "US"
+    },
+    "status": "scored",
+    "audit_trail": [
+      {
+        "timestamp": "2026-07-10T15:29:00.089609Z",
+        "agent": "transaction_validator",
+        "transaction_id": "TXN003",
+        "outcome": "validated"
+      },
+      {
+        "timestamp": "2026-07-10T15:29:00.091988Z",
+        "agent": "fraud_detector",
+        "transaction_id": "TXN003",
+        "outcome": "scored_low"
+      }
+    ],
+    "risk_score": 10,
+    "risk_level": "low"
+  }
+}

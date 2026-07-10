@@ -1,0 +1,47 @@
+{
+  "message_id": "0751700a-ab0f-594a-876e-7f49aa354bb7",
+  "timestamp": "2026-07-10T15:29:00.137319Z",
+  "source_agent": "settlement_processor",
+  "target_agent": "results",
+  "message_type": "transaction",
+  "data": {
+    "transaction_id": "TXN008",
+    "timestamp": "2026-03-16T10:15:00Z",
+    "source_account": "ACC-1008",
+    "destination_account": "ACC-9900",
+    "amount": "3200.00",
+    "currency": "USD",
+    "transaction_type": "transfer",
+    "description": "Salary advance",
+    "metadata": {
+      "channel": "mobile",
+      "country": "US"
+    },
+    "status": "settled",
+    "audit_trail": [
+      {
+        "timestamp": "2026-07-10T15:29:00.133615Z",
+        "agent": "transaction_validator",
+        "transaction_id": "TXN008",
+        "outcome": "validated"
+      },
+      {
+        "timestamp": "2026-07-10T15:29:00.135329Z",
+        "agent": "fraud_detector",
+        "transaction_id": "TXN008",
+        "outcome": "scored_low"
+      },
+      {
+        "timestamp": "2026-07-10T15:29:00.137351Z",
+        "agent": "settlement_processor",
+        "transaction_id": "TXN008",
+        "outcome": "settled"
+      }
+    ],
+    "risk_score": 6,
+    "risk_level": "low",
+    "fee": "16.00",
+    "net_amount": "3184.00",
+    "settlement_date": "2026-03-17T10:15:00Z"
+  }
+}
