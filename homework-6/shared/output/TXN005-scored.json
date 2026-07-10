@@ -1,0 +1,38 @@
+{
+  "message_id": "ada8fe82-0097-5ec3-a1c5-488a7ffa518e",
+  "timestamp": "2026-07-10T15:29:00.107243Z",
+  "source_agent": "fraud_detector",
+  "target_agent": "settlement_processor",
+  "message_type": "transaction",
+  "data": {
+    "transaction_id": "TXN005",
+    "timestamp": "2026-03-16T10:00:00Z",
+    "source_account": "ACC-1005",
+    "destination_account": "ACC-6600",
+    "amount": "75000.00",
+    "currency": "USD",
+    "transaction_type": "wire_transfer",
+    "description": "Property settlement",
+    "metadata": {
+      "channel": "branch",
+      "country": "US"
+    },
+    "status": "scored",
+    "audit_trail": [
+      {
+        "timestamp": "2026-07-10T15:29:00.105373Z",
+        "agent": "transaction_validator",
+        "transaction_id": "TXN005",
+        "outcome": "validated"
+      },
+      {
+        "timestamp": "2026-07-10T15:29:00.107270Z",
+        "agent": "fraud_detector",
+        "transaction_id": "TXN005",
+        "outcome": "scored_high"
+      }
+    ],
+    "risk_score": 72,
+    "risk_level": "high"
+  }
+}
